@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +34,6 @@
     overflow-x: hidden;
   }
 
-  /* === STARFIELD === */
   #stars-canvas {
     position: fixed;
     top: 0; left: 0;
@@ -43,7 +42,6 @@
     pointer-events: none;
   }
 
-  /* === HERO === */
   .hero {
     position: relative;
     z-index: 1;
@@ -109,7 +107,6 @@
     50% { opacity: 1; }
   }
 
-  /* === MATH EQUATION DECORATION === */
   .math-float {
     position: absolute;
     font-family: 'Space Mono', monospace;
@@ -119,7 +116,6 @@
     white-space: nowrap;
   }
 
-  /* === SECTION === */
   section {
     position: relative;
     z-index: 1;
@@ -154,7 +150,6 @@
     margin: 1.5rem auto 0;
   }
 
-  /* === CHARACTER CARDS === */
   .characters-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -311,12 +306,10 @@
     margin-top: 2px;
   }
 
-  /* wide card */
   .char-card.wide {
     grid-column: 1 / -1;
   }
 
-  /* === QUIZ SECTION === */
   .quiz-section {
     background: var(--deep);
     border-top: 1px solid rgba(212, 134, 10, 0.15);
@@ -329,7 +322,6 @@
     margin: 0 auto;
   }
 
-  /* Progress bar */
   .quiz-progress {
     display: flex;
     gap: 4px;
@@ -346,7 +338,6 @@
   .progress-seg.done { background: var(--amber-light); }
   .progress-seg.active { background: rgba(212, 134, 10, 0.5); }
 
-  /* Question card */
   .question-card {
     display: none;
     animation: fadeIn 0.4s ease;
@@ -408,7 +399,6 @@
     color: var(--star);
   }
 
-  /* Result */
   .quiz-result {
     display: none;
     animation: fadeIn 0.5s ease;
@@ -506,7 +496,6 @@
     background: rgba(212, 134, 10, 0.1);
   }
 
-  /* === FOOTER === */
   footer {
     position: relative;
     z-index: 1;
@@ -544,16 +533,16 @@
 
   <p class="hero-eyebrow">NASA · 1961 – 1969 · Hampton, Virginia</p>
   <h1 class="hero-title">Hidden<br><span>Figures</span></h1>
-  <p class="hero-sub">Drei Frauen. Drei Genies. Eine Geschichte, die das All veränderte und lange verborgen blieb.</p>
+  <p class="hero-sub">Three Women. A story that changed space exploration forever.</p>
   <div class="hero-line"></div>
-  <p class="scroll-hint"> EnglishLK2027</p>
+  <p class="scroll-hint">EnglishLK2027</p>
 </div>
 
 <!-- CHARACTERS -->
 <section>
   <div class="section-header">
-    <p class="section-label">Schlüsselfiguren</p>
-    <h2 class="section-title">Die Menschen hinter der Mission</h2>
+    <p class="section-label">Key Figures</p>
+    <h2 class="section-title">The People Behind the Mission</h2>
     <div class="section-rule"></div>
   </div>
 
@@ -561,162 +550,162 @@
 
     <!-- Katherine Johnson -->
     <div class="char-card protagonist">
-      <p class="char-role">Hauptfigur · Mathematikerin</p>
+      <p class="char-role">Main Character · Mathematician</p>
       <h3 class="char-name">Katherine Johnson</h3>
-      <p class="char-actor">gespielt von Taraji P. Henson</p>
+      <p class="char-actor">played by Taraji P. Henson</p>
       <div class="char-divider" style="color:var(--amber)"></div>
       <p class="char-description">
-        Katherine ist eine außergewöhnliche Mathematikerin mit einer fast übernatürlichen Fähigkeit, komplexe Bahnenberechnungen im Kopf durchzuführen. Als erste Schwarze Frau, die in die Forschungsabteilung der NASA aufsteigt, muss sie täglich unsichtbare Mauern aus Rassismus und Sexismus einreißen — ohne ihr ruhiges Äußeres zu verlieren.
+        Katherine is an extraordinary mathematician with an almost supernatural ability to perform complex trajectory calculations in her head. As the first Black woman to rise through the ranks to NASA's research division, she must break down invisible walls of racism and sexism every day — without ever losing her calm demeanor.
       </p>
       <div class="char-traits">
-        <span class="trait">präzise</span>
-        <span class="trait">unerschütterlich</span>
-        <span class="trait">beharrlich</span>
-        <span class="trait">demütig</span>
-        <span class="trait">neugierig</span>
-        <span class="trait">mutig</span>
+        <span class="trait">precise</span>
+        <span class="trait">steadfast</span>
+        <span class="trait">persevering</span>
+        <span class="trait">humble</span>
+        <span class="trait">curious</span>
+        <span class="trait">courageous</span>
       </div>
       <div class="char-behaviors">
-        <p class="behavior-title">Verhalten &amp; Eigenschaften</p>
-        <div class="behavior-item">Sie geht schweigend Hindernisse an — sie beweist ihre Kompetenz durch Leistung, nicht durch Konfrontation.</div>
-        <div class="behavior-item">Stellt mutig Fragen in Meetings, in die Frauen eigentlich nicht gehören dürften.</div>
-        <div class="behavior-item">Läuft täglich kilometerweit, um die einzige „farbige" Toilette zu erreichen — ohne zu klagen, bis sie es schließlich laut ausspricht.</div>
-        <div class="behavior-item">Hat eine tiefe, unerschütterliche Überzeugung: Zahlen lügen nicht — und sie kann sie lesen.</div>
+        <p class="behavior-title">Behavior &amp; Characteristics</p>
+        <div class="behavior-item">She tackles obstacles in silence — she proves her competence through performance, not confrontation.</div>
+        <div class="behavior-item">She courageously asks questions in meetings where women were never supposed to be present.</div>
+        <div class="behavior-item">Walks kilometers every day to reach the only "colored" restroom — without complaining, until she finally speaks up.</div>
+        <div class="behavior-item">Has a deep, unshakable conviction: numbers don't lie — and she knows how to read them.</div>
       </div>
-      <p class="char-quote">"Ich bin eine vollwertige Forscherin — und eine vollwertige Frau. Genau wie alle anderen auch."</p>
+      <p class="char-quote">"I am a fully-fledged researcher — and a fully-fledged woman. Just like everyone else."</p>
     </div>
 
     <!-- Dorothy Vaughan -->
     <div class="char-card protagonist">
-      <p class="char-role">Hauptfigur · Informatikerin</p>
+      <p class="char-role">Main Character · Computer Scientist</p>
       <h3 class="char-name">Dorothy Vaughan</h3>
-      <p class="char-actor">gespielt von Octavia Spencer</p>
+      <p class="char-actor">played by Octavia Spencer</p>
       <div class="char-divider" style="color:var(--amber)"></div>
       <p class="char-description">
-        Dorothy ist die inoffizielle Vorgesetzte der Schwarzen Rechnerinnen — eine Führungspersönlichkeit, die nie den offiziellen Titel bekam, den sie verdiente. Pragmatisch, vorausschauend und entschlossen erkennt sie früh die Zukunft der Computertechnologie und bringt sich und ihr gesamtes Team selbstständig bei, was die NASA bald brauchen wird.
+        Dorothy is the unofficial supervisor of the Black female computers — a leader who never received the official title she deserved. Pragmatic, forward-thinking, and determined, she recognizes early on the future of computing technology and independently teaches herself and her entire team what NASA will soon need most.
       </p>
       <div class="char-traits">
-        <span class="trait">strategisch</span>
-        <span class="trait">vorausschauend</span>
+        <span class="trait">strategic</span>
+        <span class="trait">forward-thinking</span>
         <span class="trait">loyal</span>
-        <span class="trait">pragmatisch</span>
-        <span class="trait">ruhig</span>
-        <span class="trait">selbstbestimmt</span>
+        <span class="trait">pragmatic</span>
+        <span class="trait">composed</span>
+        <span class="trait">self-determined</span>
       </div>
       <div class="char-behaviors">
-        <p class="behavior-title">Verhalten &amp; Eigenschaften</p>
-        <div class="behavior-item">Lernt eigenständig FORTRAN aus der Bibliothek — nimmt sich das Buch einfach mit, als es ihr verweigert wird.</div>
-        <div class="behavior-item">Schützt ihr Team mit stiller Entschlossenheit und sorgt dafür, dass alle mitgezogen werden, wenn sich Chancen öffnen.</div>
-        <div class="behavior-item">Konfrontiert Unrecht direkt, aber kontrolliert — mit Fakten statt mit Emotionen.</div>
-        <div class="behavior-item">Macht sich unentbehrlich, bevor noch jemand merkt, dass sie fehlt.</div>
+        <p class="behavior-title">Behavior &amp; Characteristics</p>
+        <div class="behavior-item">Independently learns FORTRAN from a library book — simply takes it when she is denied access to the section.</div>
+        <div class="behavior-item">Protects her team with quiet resolve and ensures everyone is brought along when opportunities open up.</div>
+        <div class="behavior-item">Confronts injustice directly but with control — using facts rather than emotion.</div>
+        <div class="behavior-item">Makes herself indispensable before anyone realizes she is missing.</div>
       </div>
-      <p class="char-quote">"Ich habe diesen Job noch nicht — aber ich tue ihn schon lange. Ist das nicht Beweis genug?"</p>
+      <p class="char-quote">"I don't have this job yet — but I've been doing it for a long time. Isn't that proof enough?"</p>
     </div>
 
     <!-- Mary Jackson -->
     <div class="char-card protagonist">
-      <p class="char-role">Hauptfigur · Ingenieurin</p>
+      <p class="char-role">Main Character · Engineer</p>
       <h3 class="char-name">Mary Jackson</h3>
-      <p class="char-actor">gespielt von Janelle Monáe</p>
+      <p class="char-actor">played by Janelle Monáe</p>
       <div class="char-divider" style="color:var(--amber)"></div>
       <p class="char-description">
-        Mary ist die lebendigste der drei — laut, selbstbewusst und unerschrocken. Als erste Schwarze Ingenieurin der NASA erkämpft sie sich ihren Abschluss durch einen Gerichtsbeschluss. Sie glaubt nicht daran, sich zu verbiegen, um dazuzugehören. Stattdessen öffnet sie Türen — für sich und alle, die nach ihr kommen.
+        Mary is the most vivacious of the three — bold, self-assured, and fearless. As NASA's first Black female engineer, she fights for her degree through a court order. She does not believe in shrinking herself to fit in. Instead, she opens doors — for herself and for everyone who comes after her.
       </p>
       <div class="char-traits">
-        <span class="trait">furchtlos</span>
-        <span class="trait">charismatisch</span>
-        <span class="trait">direkt</span>
-        <span class="trait">ehrgeizig</span>
-        <span class="trait">humorvoll</span>
-        <span class="trait">kämpferisch</span>
+        <span class="trait">fearless</span>
+        <span class="trait">charismatic</span>
+        <span class="trait">direct</span>
+        <span class="trait">ambitious</span>
+        <span class="trait">witty</span>
+        <span class="trait">combative</span>
       </div>
       <div class="char-behaviors">
-        <p class="behavior-title">Verhalten &amp; Eigenschaften</p>
-        <div class="behavior-item">Geht vor Gericht, um Zugang zu Ingenieurskursen an einer Schule für Weiße zu erstreiten — und gewinnt.</div>
-        <div class="behavior-item">Spricht aus, was andere nur denken — direkt, schlagfertig, ohne Entschuldigung.</div>
-        <div class="behavior-item">Ermutigt Katherine, sich zu äußern, und traut sich selbst immer einen Schritt weiter.</div>
-        <div class="behavior-item">Trägt Stöckelschuhe zur Arbeit im Windkanal — Stil als Statement, nicht als Frage.</div>
+        <p class="behavior-title">Behavior &amp; Characteristics</p>
+        <div class="behavior-item">Goes to court to gain access to engineering courses at an all-white school — and wins.</div>
+        <div class="behavior-item">Says what others only think — directly, sharply, without apology.</div>
+        <div class="behavior-item">Encourages Katherine to speak up, and always pushes herself one step further.</div>
+        <div class="behavior-item">Wears heels to work in the wind tunnel — style as a statement, not a question.</div>
       </div>
-      <p class="char-quote">"Jeden Tag muss ich als Erste irgendwo sein. Jeden verdammten Tag."</p>
+      <p class="char-quote">"Every day I have to be the first at something. Every single day."</p>
     </div>
 
     <!-- Al Harrison -->
     <div class="char-card chief">
-      <p class="char-role">Chef · NASA-Direktor</p>
+      <p class="char-role">Director · NASA Task Group Head</p>
       <h3 class="char-name">Al Harrison</h3>
-      <p class="char-actor">gespielt von Kevin Costner</p>
+      <p class="char-actor">played by Kevin Costner</p>
       <div class="char-divider" style="color:#5b8fa8"></div>
       <p class="char-description">
-        Al Harrison ist der Leiter des Space Task Group — ein Mann, dessen einzige Leidenschaft darin besteht, den ersten Amerikanier in den Orbit zu bringen. Rassismus interessiert ihn nicht aus Überzeugung — er ist zu beschäftigt damit, der Sowjetunion zu schlagen. Paradoxerweise macht ihn genau diese pragmatische Gleichgültigkeit zu einem unerwarteten Verbündeten Katherines.
+        Al Harrison is the head of the Space Task Group — a man whose sole obsession is putting the first American into orbit. Racism doesn't interest him as a matter of principle — he is too busy trying to beat the Soviet Union. Paradoxically, this pragmatic indifference makes him an unexpected ally for Katherine.
       </p>
-      <div class="char-traits" style="--prototype:blue">
-        <span class="trait">ergebnisorientiert</span>
-        <span class="trait">ungeduldig</span>
+      <div class="char-traits">
+        <span class="trait">results-driven</span>
+        <span class="trait">impatient</span>
         <span class="trait">fair</span>
-        <span class="trait">pragmatisch</span>
-        <span class="trait">beschützerisch</span>
+        <span class="trait">pragmatic</span>
+        <span class="trait">protective</span>
       </div>
       <div class="char-behaviors">
-        <p class="behavior-title">Verhalten &amp; Eigenschaften</p>
-        <div class="behavior-item">Schlägt eigenhändig das „Colored Women"-Schild von der Toilette — nicht als Geste, sondern weil es ihn produktive Zeit kostet.</div>
-        <div class="behavior-item">Stellt Katherine ins Briefing-Meeting, weil Qualität für ihn keine Hautfarbe hat.</div>
-        <div class="behavior-item">Behandelt Katherine respektvoll, ohne die Diskriminierung um ihn herum aktiv zu bekämpfen — solange sie seinen Missionsplan nicht stört.</div>
-        <div class="behavior-item">Lernt langsam, den vollen Menschen hinter der Mathematikerin zu sehen.</div>
+        <p class="behavior-title">Behavior &amp; Characteristics</p>
+        <div class="behavior-item">Personally tears down the "Colored Women" restroom sign — not as a gesture, but because it costs him productive time.</div>
+        <div class="behavior-item">Brings Katherine into briefing meetings because quality, to him, has no skin color.</div>
+        <div class="behavior-item">Treats Katherine with respect without actively fighting the discrimination around him — so long as it doesn't interfere with his mission.</div>
+        <div class="behavior-item">Slowly learns to see the full human being behind the mathematician.</div>
       </div>
-      <p class="char-quote">"Hier drinnen pinkeln wir alle die gleiche Farbe."</p>
+      <p class="char-quote">"Here at NASA, we all pee the same color."</p>
     </div>
 
     <!-- John Glenn -->
     <div class="char-card astronaut">
-      <p class="char-role">Astronaut · Erster Amerikaner im Orbit</p>
+      <p class="char-role">Astronaut · First American in Orbit</p>
       <h3 class="char-name">John Glenn</h3>
-      <p class="char-actor">gespielt von Glen Powell</p>
+      <p class="char-actor">played by Glen Powell</p>
       <div class="char-divider" style="color:#4a9e7a"></div>
       <p class="char-description">
-        John Glenn ist der charmante, volkstümliche Astronaut, der den ersten bemannten Erdorbit für die USA absolviert. Er ist ein echter Held — aber sein bemerkenswerter Zug ist seine Fähigkeit zuzuhören. Er vertraut Katherine Johnson bedingungslos und besteht darauf, dass sie persönlich die Berechnungen der NASA-Computer überprüft. Für ihn ist Kompetenz Kompetenz — unabhängig von Rasse oder Geschlecht.
+        John Glenn is the charming, down-to-earth astronaut who completes the first crewed Earth orbit for the United States. He is a genuine hero — but his most remarkable quality is his ability to listen. He trusts Katherine Johnson unconditionally and insists that she personally verify the NASA computer's calculations before his flight. For him, competence is competence — regardless of race or gender.
       </p>
       <div class="char-traits">
-        <span class="trait">vertrauensvoll</span>
-        <span class="trait">respektvoll</span>
-        <span class="trait">bodenständig</span>
-        <span class="trait">mutig</span>
-        <span class="trait">offen</span>
+        <span class="trait">trusting</span>
+        <span class="trait">respectful</span>
+        <span class="trait">grounded</span>
+        <span class="trait">brave</span>
+        <span class="trait">open-minded</span>
       </div>
       <div class="char-behaviors">
-        <p class="behavior-title">Verhalten &amp; Eigenschaften</p>
-        <div class="behavior-item">Besteht auf Katherines persönlicher Überprüfung der Borechnungen, bevor er startet — und nennt sie beim Namen.</div>
-        <div class="behavior-item">Begrüßt die Schwarzen Rechnerinnen herzlich und respektvoll — eine Ausnahme in seiner Zeit.</div>
-        <div class="behavior-item">Zeigt Nervosität, aber lässt sich von ihr nicht bremsen — er fliegt trotzdem.</div>
-        <div class="behavior-item">Gibt Katherine öffentlich Anerkennung in einem Umfeld, das ihr die Sichtbarkeit routinemäßig verweigert.</div>
+        <p class="behavior-title">Behavior &amp; Characteristics</p>
+        <div class="behavior-item">Insists on Katherine personally checking the calculations before launch — and calls her by name.</div>
+        <div class="behavior-item">Greets the Black female computers warmly and respectfully — a rare exception in his time.</div>
+        <div class="behavior-item">Shows nerves but refuses to be stopped by them — he flies anyway.</div>
+        <div class="behavior-item">Publicly credits Katherine in an environment that routinely denies her visibility.</div>
       </div>
-      <p class="char-quote">"Wenn die Frau sagt, die Zahlen stimmen, dann will ich das von ihr persönlich hören."</p>
+      <p class="char-quote">"If the lady says the numbers are good, I want to hear it from her directly."</p>
     </div>
 
     <!-- Paul Stafford -->
     <div class="char-card antagonist">
-      <p class="char-role">Kollege · Antagonist</p>
+      <p class="char-role">Colleague · Antagonist</p>
       <h3 class="char-name">Paul Stafford</h3>
-      <p class="char-actor">gespielt von Jim Parsons</p>
+      <p class="char-actor">played by Jim Parsons</p>
       <div class="char-divider" style="color:var(--red)"></div>
       <p class="char-description">
-        Paul Stafford ist Katherines direkter Vorgesetzter im Space Task Group — ein brillanter Ingenieur, der von unbewussten und ganz bewussten Vorurteilen geleitet wird. Er sieht Katherine als Bedrohung für seinen Status, nicht als Kollegin. Sein Rassismus ist selten laut — er zeigt sich in kleinen Demütigungen, in verweigerter Anerkennung und in systematischen Blockaden, die er als „normal" verkauft.
+        Paul Stafford is Katherine's direct supervisor in the Space Task Group — a brilliant engineer guided by both unconscious and very conscious bias. He sees Katherine as a threat to his status, not as a colleague. His racism is rarely loud — it shows itself in small humiliations, in withheld credit, and in systematic obstacles he presents as perfectly normal.
       </p>
       <div class="char-traits">
-        <span class="trait">statusbewusst</span>
-        <span class="trait">defensiv</span>
+        <span class="trait">status-conscious</span>
+        <span class="trait">defensive</span>
         <span class="trait">biased</span>
         <span class="trait">arrogant</span>
-        <span class="trait">kompetent</span>
-        <span class="trait">passiv-aggressiv</span>
+        <span class="trait">competent</span>
+        <span class="trait">passive-aggressive</span>
       </div>
       <div class="char-behaviors">
-        <p class="behavior-title">Verhalten &amp; Eigenschaften</p>
-        <div class="behavior-item">Schwärzt Katherines Namen auf Berichten aus — ihr Beitrag soll unsichtbar bleiben.</div>
-        <div class="behavior-item">Verbietet Katherine das Betreten des Briefing-Raums mit dem Argument, es sei „nicht üblich" für Frauen.</div>
-        <div class="behavior-item">Delegiert Aufgaben an Katherine, erkennt ihre Leistung aber nie offiziell an.</div>
-        <div class="behavior-item">Wirkt nie offen feindselig — er lächelt dabei, während er Türen zuhält.</div>
+        <p class="behavior-title">Behavior &amp; Characteristics</p>
+        <div class="behavior-item">Redacts Katherine's name from reports — her contribution must remain invisible.</div>
+        <div class="behavior-item">Bars Katherine from entering the briefing room on the grounds that it is "not customary" for women.</div>
+        <div class="behavior-item">Delegates tasks to Katherine but never officially acknowledges her performance.</div>
+        <div class="behavior-item">Never appears overtly hostile — he smiles while holding the doors shut.</div>
       </div>
-      <p class="char-quote">"Das haben wir hier so noch nie gemacht." — Ein Satz, der mehr Türen verriegelt hat als jedes Schloss.</p>
+      <p class="char-quote">"That's not how we do things here." — A sentence that has locked more doors than any key ever could.</p>
     </div>
 
   </div>
@@ -726,134 +715,133 @@
 <section class="quiz-section">
   <div class="quiz-container">
     <div class="section-header" style="padding-top:0">
-      <p class="section-label">Selbsttest</p>
-      <h2 class="section-title">Welche Figur bist du?</h2>
+      <p class="section-label">Self-Test</p>
+      <h2 class="section-title">Which Character Are You?</h2>
       <div class="section-rule"></div>
-      <p style="margin-top:1.5rem;font-size:14px;color:var(--muted);text-align:center;max-width:500px;margin-left:auto;margin-right:auto;">10 Fragen. Keine richtigen Antworten. Nur du, deine Entscheidungen — und ein Charakter, der dich widerspiegelt.</p>
+      <p style="margin-top:1.5rem;font-size:14px;color:var(--muted);text-align:center;max-width:500px;margin-left:auto;margin-right:auto;">10 questions. No right answers. Just you, your choices — and a character that reflects who you are.</p>
     </div>
 
     <div class="quiz-progress" id="progressBar"></div>
 
-    <!-- Questions -->
     <div id="quizQuestions">
 
       <div class="question-card active" data-q="0">
-        <p class="q-number">FRAGE 01 / 10</p>
-        <p class="q-text">Du bekommst eine schwierige Aufgabe, für die du noch nicht offiziell qualifiziert bist. Was tust du?</p>
+        <p class="q-number">QUESTION 01 / 10</p>
+        <p class="q-text">You're given a difficult task you're not yet officially qualified for. What do you do?</p>
         <div class="q-options">
-          <button class="q-option" data-char="K">Ich erledige sie still und perfekt — die Qualität spricht für sich.</button>
-          <button class="q-option" data-char="D">Ich eignete mir heimlich die nötigen Kenntnisse an und sorge dafür, dass mein ganzes Team dabei profitiert.</button>
-          <button class="q-option" data-char="M">Ich frage laut, warum ich sie eigentlich nicht offiziell machen darf — und erkämpfe mir das Recht dazu.</button>
-          <button class="q-option" data-char="H">Ich sage direkt: Mir ist egal wer es macht, Hauptsache es wird richtig gemacht.</button>
-          <button class="q-option" data-char="P">Ich delegiere sie diskreet und stelle mich hinterher als Verantwortlichen dar.</button>
+          <button class="q-option" data-char="K">I complete it quietly and perfectly — the quality speaks for itself.</button>
+          <button class="q-option" data-char="D">I quietly acquire the knowledge I need and make sure my whole team benefits too.</button>
+          <button class="q-option" data-char="M">I ask out loud why I'm not officially allowed to do it — and fight for the right to.</button>
+          <button class="q-option" data-char="H">I say clearly: I don't care who does it, as long as it gets done right.</button>
+          <button class="q-option" data-char="P">I delegate it discreetly and position myself as responsible afterward.</button>
         </div>
       </div>
 
       <div class="question-card" data-q="1">
-        <p class="q-number">FRAGE 02 / 10</p>
-        <p class="q-text">Jemand in deinem Team macht einen Fehler, der das Projekt gefährdet. Wie reagierst du?</p>
+        <p class="q-number">QUESTION 02 / 10</p>
+        <p class="q-text">Someone on your team makes a mistake that puts the project at risk. How do you respond?</p>
         <div class="q-options">
-          <button class="q-option" data-char="K">Ich rechne nach — und zeige ruhig, wo der Fehler liegt, ohne die Person bloßzustellen.</button>
-          <button class="q-option" data-char="D">Ich hatte das schon vorausgesehen und habe einen Backup-Plan parat.</button>
-          <button class="q-option" data-char="M">Ich sage es direkt — klar, deutlich, ohne Herumreden.</button>
-          <button class="q-option" data-char="J">Ich vertraue dem Team und frage nach — ohne Panik, mit Respekt.</button>
-          <button class="q-option" data-char="P">Ich sorge dafür, dass der Fehler nicht meinem Namen anhängt.</button>
+          <button class="q-option" data-char="K">I check the numbers — and calmly show where the error is, without embarrassing anyone.</button>
+          <button class="q-option" data-char="D">I saw it coming and already have a backup plan ready.</button>
+          <button class="q-option" data-char="M">I say it directly — clearly, plainly, without beating around the bush.</button>
+          <button class="q-option" data-char="J">I trust the team and ask questions — without panic, with respect.</button>
+          <button class="q-option" data-char="P">I make sure the mistake doesn't get attached to my name.</button>
         </div>
       </div>
 
       <div class="question-card" data-q="2">
-        <p class="q-number">FRAGE 03 / 10</p>
-        <p class="q-text">Du stehst vor einer ungerechten Regel — sie schadet dir, aber niemand spricht sie laut aus. Was machst du?</p>
+        <p class="q-number">QUESTION 03 / 10</p>
+        <p class="q-text">You face an unjust rule — it harms you, but no one speaks about it openly. What do you do?</p>
         <div class="q-options">
-          <button class="q-option" data-char="K">Ich halte mich daran, bis ich einen Moment finde, sie öffentlich zu hinterfragen.</button>
-          <button class="q-option" data-char="D">Ich finde einen legalen Weg drumherum — und nehme andere mit.</button>
-          <button class="q-option" data-char="M">Ich spreche sie an. Sofort. Laut. Mit Konsequenzen im Blick.</button>
-          <button class="q-option" data-char="H">Ich schaffe sie ab, wenn sie mir im Weg steht und objektiv sinnlos ist.</button>
-          <button class="q-option" data-char="P">Ich profitiere still davon — es war ja nicht meine Regel.</button>
+          <button class="q-option" data-char="K">I follow it — until I find the right moment to challenge it publicly.</button>
+          <button class="q-option" data-char="D">I find a legal way around it — and bring others along with me.</button>
+          <button class="q-option" data-char="M">I call it out. Right away. Loudly. With the consequences in mind.</button>
+          <button class="q-option" data-char="H">I remove it when it blocks me and is objectively pointless.</button>
+          <button class="q-option" data-char="P">I quietly benefit from it — it wasn't my rule to begin with.</button>
         </div>
       </div>
 
       <div class="question-card" data-q="3">
-        <p class="q-number">FRAGE 04 / 10</p>
-        <p class="q-text">Dein Team hat Erfolg — wie wichtig ist es dir, Anerkennung zu bekommen?</p>
+        <p class="q-number">QUESTION 04 / 10</p>
+        <p class="q-text">Your team succeeds — how important is it to you to receive recognition?</p>
         <div class="q-options">
-          <button class="q-option" data-char="K">Wenig. Das Ergebnis zählt, nicht mein Name daneben.</button>
-          <button class="q-option" data-char="D">Mir ist es wichtiger, dass mein Team Anerkennung bekommt — ich gehe mit, wenn sie gehen.</button>
-          <button class="q-option" data-char="M">Ja — und ich fordere sie aktiv ein. Das ist nicht Eitelkeit, das ist Würde.</button>
-          <button class="q-option" data-char="J">Ich gebe Anerkennung lieber, als sie zu empfangen.</button>
-          <button class="q-option" data-char="P">Anerkennung ist wichtig — ich sorge dafür, dass mein Beitrag sichtbar ist.</button>
+          <button class="q-option" data-char="K">Not very. The result matters, not my name beside it.</button>
+          <button class="q-option" data-char="D">More important that my team gets credit — I move forward when they do.</button>
+          <button class="q-option" data-char="M">Yes — and I actively demand it. That's not vanity, that's dignity.</button>
+          <button class="q-option" data-char="J">I prefer giving recognition rather than receiving it.</button>
+          <button class="q-option" data-char="P">Recognition matters — I make sure my contribution is visible.</button>
         </div>
       </div>
 
       <div class="question-card" data-q="4">
-        <p class="q-number">FRAGE 05 / 10</p>
-        <p class="q-text">Wie gehst du mit Veränderungen um, die deine Arbeit grundlegend umwerfen?</p>
+        <p class="q-number">QUESTION 05 / 10</p>
+        <p class="q-text">How do you handle changes that fundamentally upend your work?</p>
         <div class="q-options">
-          <button class="q-option" data-char="K">Ich analysiere sie genau — und passe mich an, wenn die Daten es verlangen.</button>
-          <button class="q-option" data-char="D">Ich sehe sie kommen, bevor sie passieren, und bereite mich und andere vor.</button>
-          <button class="q-option" data-char="M">Ich begrüße sie — solange Veränderung mehr Gerechtigkeit bedeutet.</button>
-          <button class="q-option" data-char="H">Ich treffe schnelle Entscheidungen und schaue, ob sie sich bewähren.</button>
-          <button class="q-option" data-char="P">Ich warte erst ab und positioniere mich dann auf der sicheren Seite.</button>
+          <button class="q-option" data-char="K">I analyze them carefully — and adapt when the data demands it.</button>
+          <button class="q-option" data-char="D">I see them coming before they happen, and prepare myself and others.</button>
+          <button class="q-option" data-char="M">I welcome them — as long as change means more justice.</button>
+          <button class="q-option" data-char="H">I make fast decisions and see if they hold up.</button>
+          <button class="q-option" data-char="P">I wait and see, then position myself on the safe side.</button>
         </div>
       </div>
 
       <div class="question-card" data-q="5">
-        <p class="q-number">FRAGE 06 / 10</p>
-        <p class="q-text">Du wirst von jemandem unterschätzt, der glaubt, er kennt deine Grenzen besser als du. Was passiert in dir?</p>
+        <p class="q-number">QUESTION 06 / 10</p>
+        <p class="q-text">Someone underestimates you, believing they know your limits better than you do. What happens inside you?</p>
         <div class="q-options">
-          <button class="q-option" data-char="K">Ein stilles Brennen — ich werde es durch Leistung zeigen, nicht durch Worte.</button>
-          <button class="q-option" data-char="D">Ich nehme es zur Kenntnis und sorge dafür, dass es nicht mehr passiert — systematisch.</button>
-          <button class="q-option" data-char="M">Ich bin wütend — und ich sage es. Respekt ist keine Frage des Wartens.</button>
-          <button class="q-option" data-char="J">Ich höre zu — und bilde mir dann selbst ein Urteil.</button>
-          <button class="q-option" data-char="P">Ich frage mich, wie ich das zu meinem Vorteil nutzen kann.</button>
+          <button class="q-option" data-char="K">A quiet burning — I'll show them through performance, not words.</button>
+          <button class="q-option" data-char="D">I take note and make sure it doesn't happen again — systematically.</button>
+          <button class="q-option" data-char="M">I'm angry — and I say so. Respect is not something you wait for.</button>
+          <button class="q-option" data-char="J">I listen — and then form my own judgment.</button>
+          <button class="q-option" data-char="P">I wonder how I can turn it to my advantage.</button>
         </div>
       </div>
 
       <div class="question-card" data-q="6">
-        <p class="q-number">FRAGE 07 / 10</p>
-        <p class="q-text">Wie lernst du am besten Neues?</p>
+        <p class="q-number">QUESTION 07 / 10</p>
+        <p class="q-text">How do you learn new things best?</p>
         <div class="q-options">
-          <button class="q-option" data-char="K">Durch tiefes, konzentriertes Arbeiten mit den Zahlen selbst.</button>
-          <button class="q-option" data-char="D">Ich suche mir eigenständig Quellen und strukturiere das Wissen dann für andere.</button>
-          <button class="q-option" data-char="M">Durch Erfahrung — und durch das Stellen von unbequemen Fragen.</button>
-          <button class="q-option" data-char="H">Durch Ausprobieren — ich lerne am besten unter Druck.</button>
-          <button class="q-option" data-char="P">Durch Beobachtung — ich schaue zu, wer was weiß, bevor ich selbst lerne.</button>
+          <button class="q-option" data-char="K">Through deep, focused work with the material itself.</button>
+          <button class="q-option" data-char="D">I seek out sources independently and then structure the knowledge for others.</button>
+          <button class="q-option" data-char="M">Through experience — and by asking uncomfortable questions.</button>
+          <button class="q-option" data-char="H">By doing — I learn best under pressure.</button>
+          <button class="q-option" data-char="P">By observing — I watch who knows what before I learn myself.</button>
         </div>
       </div>
 
       <div class="question-card" data-q="7">
-        <p class="q-number">FRAGE 08 / 10</p>
-        <p class="q-text">In einer Gruppe hast du die beste Lösung — aber sie stört den Konsens. Was tust du?</p>
+        <p class="q-number">QUESTION 08 / 10</p>
+        <p class="q-text">In a group, you have the best solution — but it disrupts the consensus. What do you do?</p>
         <div class="q-options">
-          <button class="q-option" data-char="K">Ich bringe sie ein, ruhig aber klar — auch wenn es unbequem wird.</button>
-          <button class="q-option" data-char="D">Ich warte auf den richtigen Moment und sorge dafür, dass die Idee gehört wird.</button>
-          <button class="q-option" data-char="M">Ich sage es sofort und direkt. Konsens ist kein Ziel, wenn er falsch liegt.</button>
-          <button class="q-option" data-char="H">Ich entscheide — das ist schließlich meine Aufgabe.</button>
-          <button class="q-option" data-char="J">Ich höre alle Lösungen an und vertraue dann dem Experten.</button>
+          <button class="q-option" data-char="K">I bring it up — quietly but clearly — even if it gets uncomfortable.</button>
+          <button class="q-option" data-char="D">I wait for the right moment and make sure the idea gets heard.</button>
+          <button class="q-option" data-char="M">I say it immediately and directly. Consensus isn't a goal when it's wrong.</button>
+          <button class="q-option" data-char="H">I decide — that's my job, after all.</button>
+          <button class="q-option" data-char="J">I hear everyone out and then trust the expert.</button>
         </div>
       </div>
 
       <div class="question-card" data-q="8">
-        <p class="q-number">FRAGE 09 / 10</p>
-        <p class="q-text">Was ist für dich das größte Zeichen von Stärke?</p>
+        <p class="q-number">QUESTION 09 / 10</p>
+        <p class="q-text">What is, for you, the greatest sign of strength?</p>
         <div class="q-options">
-          <button class="q-option" data-char="K">Schwierigkeiten still zu tragen, bis man sie öffentlich benennen kann.</button>
-          <button class="q-option" data-char="D">Vorausdenken und dafür sorgen, dass andere nicht fallen.</button>
-          <button class="q-option" data-char="M">Laut zu sagen, was stimmt — auch wenn der Raum still wird.</button>
-          <button class="q-option" data-char="H">Entscheidungen zu treffen, wenn alle zögern.</button>
-          <button class="q-option" data-char="J">Vertrauen zu schenken — auch wenn man Kontrolle dafür aufgibt.</button>
+          <button class="q-option" data-char="K">Carrying difficulty in silence until you can name it publicly.</button>
+          <button class="q-option" data-char="D">Thinking ahead and making sure others don't fall.</button>
+          <button class="q-option" data-char="M">Saying out loud what's right — even when the room goes quiet.</button>
+          <button class="q-option" data-char="H">Making decisions when everyone else hesitates.</button>
+          <button class="q-option" data-char="J">Giving trust — even when you have to give up control for it.</button>
         </div>
       </div>
 
       <div class="question-card" data-q="9">
-        <p class="q-number">FRAGE 10 / 10</p>
-        <p class="q-text">Was treibt dich morgens zur Arbeit?</p>
+        <p class="q-number">QUESTION 10 / 10</p>
+        <p class="q-text">What drives you to work each morning?</p>
         <div class="q-options">
-          <button class="q-option" data-char="K">Die Liebe zur Arbeit selbst — und das stille Wissen, dass ich darin gut bin.</button>
-          <button class="q-option" data-char="D">Das Gefühl, Dinge zu gestalten — für mich und für andere nach mir.</button>
-          <button class="q-option" data-char="M">Der Gedanke, dass niemand mir sagen soll, was ich sein darf.</button>
-          <button class="q-option" data-char="H">Das Ziel. Die Mission. Der Moment, wenn alles klappt.</button>
-          <button class="q-option" data-char="J">Das Vertrauen meines Teams — und der Gedanke, es nicht zu enttäuschen.</button>
+          <button class="q-option" data-char="K">The love of the work itself — and the quiet knowledge that I'm good at it.</button>
+          <button class="q-option" data-char="D">The feeling of shaping things — for myself and for those who come after me.</button>
+          <button class="q-option" data-char="M">The thought that no one gets to tell me who I'm allowed to be.</button>
+          <button class="q-option" data-char="H">The goal. The mission. The moment when everything comes together.</button>
+          <button class="q-option" data-char="J">My team's trust — and the thought of not letting them down.</button>
         </div>
       </div>
 
@@ -862,7 +850,7 @@
     <!-- Result -->
     <div class="quiz-result" id="quizResult">
       <div class="result-header">
-        <p class="result-label">Dein Charakter</p>
+        <p class="result-label">Your Character</p>
         <h2 class="result-name" id="resultName">—</h2>
       </div>
       <div class="result-card">
@@ -870,14 +858,14 @@
         <div class="result-traits" id="resultTraits"></div>
         <p class="result-comparison" id="resultComparison"></p>
       </div>
-      <button class="restart-btn" onclick="restartQuiz()">↺ Nochmal spielen</button>
+      <button class="restart-btn" onclick="restartQuiz()">↺ Play Again</button>
     </div>
 
   </div>
 </section>
 
 <footer>
-  <p>HIDDEN FIGURES · 2016 · Theodore Melfi · Basierend auf dem Buch von Margot Lee Shetterly</p>
+  <p>HIDDEN FIGURES · 2016 · Theodore Melfi · Based on the book by Margot Lee Shetterly</p>
 </footer>
 
 <script>
@@ -964,39 +952,39 @@ document.querySelectorAll('.q-option').forEach(btn => {
 const characters = {
   K: {
     name: "Katherine Johnson",
-    desc: "Du bist der ruhige Kern eines jeden Projekts — präzise, beharrlich und von tiefer innerer Überzeugung geleitet. Du kämpfst nicht laut, aber du kämpfst unaufhörlich. Für dich spricht das Ergebnis lauter als jedes Wort, und du vertraust darauf, dass Qualität am Ende sichtbar wird — auch wenn es lange dauert. Du trägst Unrecht still, bis der richtige Moment kommt, es klar und öffentlich zu benennen.",
-    traits: ["präzise", "beharrlich", "unerschütterlich", "geduldig", "faktenorientiert"],
-    comparison: "Wie Katherine brichst du keine Türen auf — du zeigst, dass sie nie hätten verschlossen sein dürfen."
+    desc: "You are the calm core of every project — precise, persistent, and guided by deep inner conviction. You don't fight loudly, but you fight relentlessly. For you, the result speaks louder than any words, and you trust that quality will become visible in the end — even if it takes a long time. You carry injustice in silence until the right moment comes to name it clearly and publicly.",
+    traits: ["precise", "persistent", "unshakeable", "patient", "fact-driven"],
+    comparison: "Like Katherine, you don't break doors open — you show they should never have been closed."
   },
   D: {
     name: "Dorothy Vaughan",
-    desc: "Du denkst immer einen Schritt voraus. Strategisch, loyal und mit dem Blick fürs Ganze bist du jemand, der Chancen erkennt, bevor andere sie sehen — und dafür sorgt, dass niemand zurückbleibt. Du lernst eigenständig, denkst systemisch, und dein größtes Talent ist es, dich und deine Umgebung unentbehrlich zu machen, bevor jemand bemerkt, dass ihr fehlt.",
-    traits: ["strategisch", "vorausschauend", "loyal", "systemisch", "selbstbestimmt"],
-    comparison: "Wie Dorothy nimmst du andere mit auf deinen Weg — nicht weil du musst, sondern weil Stärke geteilte Stärke ist."
+    desc: "You always think one step ahead. Strategic, loyal, and with an eye for the bigger picture, you're someone who spots opportunities before anyone else sees them — and makes sure no one gets left behind. You learn independently, think systemically, and your greatest talent is making yourself and your surroundings indispensable before anyone notices you were missing.",
+    traits: ["strategic", "forward-thinking", "loyal", "systemic", "self-determined"],
+    comparison: "Like Dorothy, you bring others along on your path — not because you have to, but because strength shared is strength multiplied."
   },
   M: {
     name: "Mary Jackson",
-    desc: "Du sagst, was andere nur denken. Furchtlos, direkt und mit einem scharfen Sinn für Gerechtigkeit gehst du Hindernisse frontal an — und du entschuldigst dich nicht dafür. Du glaubst nicht an stillen Widerstand, wenn lauter Widerstand genauso möglich ist. Für dich ist Würde keine Frage des Wartens.",
-    traits: ["furchtlos", "direkt", "kämpferisch", "charismatisch", "ungeduldig mit Ungerechtigkeit"],
-    comparison: "Wie Mary öffnest du Türen — manchmal muss dafür das Schloss brechen."
+    desc: "You say what others only think. Fearless, direct, and with a sharp sense of justice, you take on obstacles head-on — and you don't apologize for it. You don't believe in quiet resistance when loud resistance is equally possible. For you, dignity is not a matter of waiting.",
+    traits: ["fearless", "direct", "combative", "charismatic", "impatient with injustice"],
+    comparison: "Like Mary, you open doors — and sometimes the lock has to break for that to happen."
   },
   H: {
     name: "Al Harrison",
-    desc: "Du bist ergebnisorientiert bis ins Mark. Dich interessieren Hierarchien und Vorurteile nur insoweit, als sie deinen Erfolg blockieren — dann werden sie aus dem Weg geräumt. Pragmatisch, entscheidungsfreudig und mit einem Gespür für Talent bist du jemand, der Qualität belohnt, wenn sie ihm begegnet — manchmal sogar ohne es selbst zu merken.",
-    traits: ["pragmatisch", "ergebnisorientiert", "entschlossen", "ungeduldig", "fair"],
-    comparison: "Wie Harrison tust du das Richtige — manchmal aus den richtigen, manchmal aus den falschen Gründen. Das Ergebnis zählt."
+    desc: "You are results-driven to the core. Hierarchies and prejudice only interest you insofar as they block your success — then they get removed. Pragmatic, decisive, and with a nose for talent, you reward quality when you encounter it — sometimes even without realizing it.",
+    traits: ["pragmatic", "results-driven", "decisive", "impatient", "fair"],
+    comparison: "Like Harrison, you do the right thing — sometimes for the right reasons, sometimes the wrong ones. The result is what counts."
   },
   J: {
     name: "John Glenn",
-    desc: "Du vertraust anderen Menschen — und gibst Anerkennung, bevor du sie forderst. Dein Mut liegt nicht im Lärm, sondern im ruhigen Ja zu Dingen, die andere Nein sagen würden. Du hörst zu, bildest dir dann dein Urteil — und wenn du einmal Vertrauen gibst, ist es echt. Du machst andere sichtbarer, als du dich selbst machst.",
-    traits: ["vertrauensvoll", "respektvoll", "mutig", "bodenständig", "großzügig"],
-    comparison: "Wie Glenn fliegt man höher, wenn man anderen zuhört — auch wenn man selbst im Cockpit sitzt."
+    desc: "You trust people — and give credit before you demand it. Your courage lies not in making noise, but in a calm yes to things others would refuse. You listen, form your own judgment, and when you give trust, it's real. You make others more visible than you make yourself.",
+    traits: ["trusting", "respectful", "brave", "grounded", "generous"],
+    comparison: "Like Glenn, you fly higher when you listen to others — even when you're the one in the cockpit."
   },
   P: {
     name: "Paul Stafford",
-    desc: "Du bist kompetent — das ist nie die Frage. Aber du schützt deinen Status mit Nachdruck, und manchmal siehst du andere als Konkurrenz, bevor du sie als Kollegen siehst. Dein Widerstand ist oft nicht offen, sondern subtil — ein unterschriebener Bericht, ein verweigerter Raum. Vielleicht lohnt es sich, zu fragen: Was kostet dich dieses Schutzmuster wirklich?",
-    traits: ["statusbewusst", "defensiv", "kompetent", "subtil", "berechenbar"],
-    comparison: "Wie Stafford: Talent ohne Großmut verschwendet sich selbst. Die beste Version von dir wartet noch darauf, freigelassen zu werden."
+    desc: "You are competent — that's never in question. But you protect your status forcefully, and sometimes you see others as competition before you see them as colleagues. Your resistance is often not open, but subtle — a redacted report, a denied room. It may be worth asking: what does this pattern of protection actually cost you?",
+    traits: ["status-conscious", "defensive", "competent", "subtle", "calculated"],
+    comparison: "Like Stafford: talent without generosity wastes itself. The best version of you is still waiting to be set free."
   }
 };
 
