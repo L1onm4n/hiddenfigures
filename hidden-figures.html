@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hidden Figures – Die Unbekannten Heldinnen</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1929;
+    --navy-mid: #132438;
+    --gold: #C9963C;
+    --gold-light: #E8B86D;
+    --cream: #F5EDD8;
+    --cream-dark: #E8DCC8;
+    --rose: #C4727A;
+    --white: #FFFFFF;
+    --text-muted: #8A9BB0;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--navy);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(11, 25, 41, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201, 150, 60, 0.2);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    transition: opacity 0.2s, color 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; color: var(--gold); }
+
+  /* ── HERO ── */
+  #hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+  }
+  #starCanvas {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+  }
+  .hero-content { position: relative; z-index: 2; padding: 0 2rem; }
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.3s forwards;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 900;
+    line-height: 0.95;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.5s forwards;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-subtitle {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--cream);
+    max-width: 560px;
+    line-height: 1.7;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.7s forwards;
+    margin: 0 auto 2.5rem;
+  }
+  .hero-cta {
+    display: inline-flex; gap: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.9s forwards;
+  }
+  .btn {
+    padding: 0.85rem 2rem;
+    border-radius: 2px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s;
+    border: none;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--cream);
+    border: 1px solid rgba(245, 237, 216, 0.4);
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+  .scroll-indicator {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    z-index: 2;
+    display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+    opacity: 0.5;
+    animation: pulse 2s infinite;
+  }
+  .scroll-indicator span { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; }
+  .scroll-indicator::after {
+    content: '';
+    display: block;
+    width: 1px; height: 40px;
+    background: var(--gold);
+  }
+
+  /* ── INTRO SECTION ── */
+  #intro {
+    background: var(--cream);
+    color: var(--navy);
+    padding: 6rem 3rem;
+    position: relative;
+  }
+  .intro-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .intro-inner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--navy);
+  }
+  .intro-inner p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #334;
+    margin-bottom: 1rem;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .stat-card {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 1.5rem;
+    border-left: 3px solid var(--gold);
+  }
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label { font-size: 0.8rem; opacity: 0.7; line-height: 1.4; }
+
+  /* ── CHARACTERS ── */
+  #characters {
+    padding: 6rem 3rem;
+    background: var(--navy);
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-top: 0.5rem;
+    color: var(--white);
+  }
+  .section-header p {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .characters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .char-card {
+    background: var(--navy-mid);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  .char-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .char-card.katherine::before { background: var(--gold); }
+  .char-card.dorothy::before { background: var(--rose); }
+  .char-card.mary::before { background: #6BAED6; }
+  .char-card.al::before { background: #74C476; }
+
+  .char-card:hover { transform: translateY(-4px); }
+
+  .char-avatar {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+  }
+  .katherine .char-avatar { background: rgba(201, 150, 60, 0.15); color: var(--gold); border: 2px solid var(--gold); }
+  .dorothy .char-avatar { background: rgba(196, 114, 122, 0.15); color: var(--rose); border: 2px solid var(--rose); }
+  .mary .char-avatar { background: rgba(107, 174, 214, 0.15); color: #6BAED6; border: 2px solid #6BAED6; }
+  .al .char-avatar { background: rgba(116, 196, 118, 0.15); color: #74C476; border: 2px solid #74C476; }
+
+  .char-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+  }
+  .char-role {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+  .char-bio {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--cream-dark);
+    margin-bottom: 1.5rem;
+  }
+  .char-traits {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .trait {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.7rem;
+    border-radius: 1px;
+    text-transform: uppercase;
+  }
+  .katherine .trait { background: rgba(201, 150, 60, 0.12); color: var(--gold); border: 1px solid rgba(201,150,60,0.3); }
+  .dorothy .trait { background: rgba(196, 114, 122, 0.12); color: var(--rose); border: 1px solid rgba(196,114,122,0.3); }
+  .mary .trait { background: rgba(107, 174, 214, 0.12); color: #6BAED6; border: 1px solid rgba(107,174,214,0.3); }
+  .al .trait { background: rgba(116, 196, 118, 0.12); color: #74C476; border: 1px solid rgba(116,196,118,0.3); }
+
+  .char-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.06);
+    margin: 1.5rem 0;
+  }
+  .char-strength-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.8rem;
+  }
+  .strength-bars { display: flex; flex-direction: column; gap: 0.6rem; }
+  .strength-item {
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .strength-name { font-size: 0.78rem; color: var(--cream); width: 90px; flex-shrink: 0; }
+  .strength-bar {
+    flex: 1; height: 3px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .strength-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 1s ease;
+  }
+  .katherine .strength-fill { background: var(--gold); }
+  .dorothy .strength-fill { background: var(--rose); }
+  .mary .strength-fill { background: #6BAED6; }
+  .al .strength-fill { background: #74C476; }
+
+  /* ── QUIZ ── */
+  #quiz {
+    background: var(--cream);
+    color: var(--navy);
+    padding: 6rem 3rem;
+  }
+  .quiz-wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  #quiz .section-header h2 { color: var(--navy); }
+  #quiz .section-header p { color: #556; }
+
+  .quiz-progress {
+    margin-bottom: 2rem;
+  }
+  .progress-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 0.6rem;
+  }
+  .progress-label { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: #889; }
+  .progress-count { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--navy); }
+  .progress-bar-track {
+    height: 3px;
+    background: rgba(11, 25, 41, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+  }
+
+  .question-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-left: 4px solid var(--gold);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+  .question-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--navy);
+    margin-bottom: 2rem;
+  }
+  .options-list {
+    display: flex; flex-direction: column; gap: 0.75rem;
+    list-style: none;
+  }
+  .option-btn {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    background: var(--cream);
+    border: 1.5px solid rgba(11,25,41,0.1);
+    border-radius: 2px;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.95rem;
+    color: var(--navy);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .option-btn:hover {
+    border-color: var(--gold);
+    background: rgba(201, 150, 60, 0.06);
+    transform: translateX(4px);
+  }
+  .option-btn.selected {
+    border-color: var(--gold);
+    background: rgba(201, 150, 60, 0.1);
+    font-weight: 600;
+  }
+  .option-letter {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(11,25,41,0.08);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    color: var(--navy);
+    transition: all 0.2s;
+  }
+  .option-btn.selected .option-letter {
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  .quiz-nav {
+    display: flex; justify-content: flex-end; gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  /* ── RESULT ── */
+  #result {
+    display: none;
+    background: var(--cream);
+    padding: 6rem 3rem;
+    text-align: center;
+  }
+  .result-inner { max-width: 680px; margin: 0 auto; }
+  .result-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+  .result-avatar {
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 0 auto 1.5rem;
+  }
+  .result-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 0.25rem;
+    color: var(--navy);
+  }
+  .result-role {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #889;
+    margin-bottom: 2rem;
+  }
+  .result-description {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #334;
+    margin-bottom: 2rem;
+  }
+  .result-traits {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem;
+    margin-bottom: 2.5rem;
+  }
+  .result-trait {
+    padding: 0.4rem 1rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1.5px solid;
+    border-radius: 1px;
+  }
+  .result-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--navy);
+    border-left: 3px solid var(--gold);
+    padding-left: 1.5rem;
+    text-align: left;
+    margin: 2rem auto;
+    max-width: 520px;
+  }
+  #restartBtn {
+    margin-top: 1rem;
+    background: var(--navy);
+    color: var(--cream);
+  }
+  #restartBtn:hover { background: var(--navy-mid); transform: translateY(-2px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #060E18;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 2.5rem;
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(201,150,60,0.12);
+  }
+  footer span { color: var(--gold); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.9; }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s, transform 0.6s;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .intro-inner { grid-template-columns: 1fr; gap: 2rem; }
+    #intro, #characters, #quiz, #result { padding: 4rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#hero">HIDDEN FIGURES</a>
+  <ul class="nav-links">
+    <li><a href="#intro">Film</a></li>
+    <li><a href="#characters">Charaktere</a></li>
+    <li><a href="#quiz">Selbsttest</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="starCanvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-eyebrow">NASA · 1961 · Hampton, Virginia</div>
+    <h1 class="hero-title">HIDDEN<br><em>FIGURES</em></h1>
+    <p class="hero-subtitle">Drei außergewöhnliche schwarze Mathematikerinnen, die im Verborgenen die Geschichte der Raumfahrt schrieben – gegen alle Widerstände.</p>
+    <div class="hero-cta">
+      <a href="#characters" class="btn btn-primary">Die Charaktere</a>
+      <a href="#quiz" class="btn btn-outline">Zum Selbsttest</a>
+    </div>
+  </div>
+  <div class="scroll-indicator"><span>Scroll</span></div>
+</section>
+
+<!-- INTRO -->
+<section id="intro">
+  <div class="intro-inner">
+    <div>
+      <div class="section-label">Über den Film</div>
+      <h2>Brillanz, die niemand sehen wollte</h2>
+      <p>Hidden Figures (2016) erzählt die wahre Geschichte von Katherine Johnson, Dorothy Vaughan und Mary Jackson – drei schwarzen Frauen, die bei der NASA arbeiteten und entscheidend dazu beitrugen, den ersten US-Amerikanern in den Weltraum und wieder zurück zu verhelfen.</p>
+      <p>Der Film von Regisseur Theodore Melfi beleuchtet, wie diese Frauen gegen Rassismus, Sexismus und institutionelle Vorurteile ankämpften und dabei Geschichte schrieben – eine Geschichte, die Jahrzehnte lang kaum erzählt wurde.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-number">1962</span>
+        <span class="stat-label">John Glenns erfolgreiche Erdumrundung – berechnet von Katherine Johnson</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">3</span>
+        <span class="stat-label">Oscar-Nominierungen, inkl. Bester Film</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">1961</span>
+        <span class="stat-label">Zeitraum der Handlung, mitten im Wettlauf zum Weltraum</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">#1</span>
+        <span class="stat-label">Box Office bei Kinostart in den USA im Januar 2017</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHARACTERS -->
+<section id="characters">
+  <div class="section-header fade-in">
+    <div class="section-label">Die Schlüsselpersonen</div>
+    <h2>Charakterisierungen</h2>
+    <p>Eigenschaften, Verhalten und Persönlichkeit der zentralen Figuren</p>
+  </div>
+
+  <div class="characters-grid">
+
+    <!-- Katherine -->
+    <div class="char-card katherine fade-in">
+      <div class="char-avatar">K</div>
+      <div class="char-name">Katherine Johnson</div>
+      <div class="char-role">Mathematikerin · Berechnerin</div>
+      <p class="char-bio">Katherine ist ein mathematisches Wunderkind mit fast übernatürlicher Präzision. Als sie ins Rechenzentrum der NASA versetzt wird, kämpft sie täglich gegen unsichtbare Mauern – fehlende Kaffeekanne, fehlende Toiletten, fehlende Anerkennung. Doch ihre Genauigkeit ist schlicht unersetzlich.</p>
+      <p class="char-bio">Sie stellt unbequeme Fragen laut im Raum, wenn niemand sie stellen will. Nicht aus Trotz, sondern weil die Wahrheit für sie wichtiger ist als Bequemlichkeit.</p>
+      <div class="char-traits">
+        <span class="trait">Analytisch</span>
+        <span class="trait">Mutig</span>
+        <span class="trait">Präzise</span>
+        <span class="trait">Introvertiert</span>
+        <span class="trait">Hartnäckig</span>
+      </div>
+      <div class="char-divider"></div>
+      <div class="char-strength-label">Stärken im Profil</div>
+      <div class="strength-bars">
+        <div class="strength-item"><span class="strength-name">Logik</span><div class="strength-bar"><div class="strength-fill" style="width:97%"></div></div></div>
+        <div class="strength-item"><span class="strength-name">Mut</span><div class="strength-bar"><div class="strength-fill" style="width:82%"></div></div></div>
+        <div class="strength-item"><span class="strength-name">Führung</span><div class="strength-bar"><div class="strength-fill" style="width:55%"></div></div></div>
+        <div class="strength-item"><span class="strength-name">Kreativität</span><div class="strength-bar"><div class="strength-fill" style="width:75%"></div></div></div>
+      </div>
+    </div>
+
+    <!-- Dorothy -->
+    <div class="char-card dorothy fade-in">
+      <div class="char-avatar">D</div>
+      <div class="char-name">Dorothy Vaughan</div>
+      <div class="char-role">Vorarbeiterin · Programmiererin</div>
+      <p class="char-bio">Dorothy ist die stille Strategin. Sie macht seit Jahren die Arbeit einer Vorgesetzen, ohne den Titel oder die Bezahlung zu erhalten. Statt zu klagen, handelt sie: Sie erlernt eigenständig FORTRAN und bereitet ihr gesamtes Team auf das digitale Zeitalter vor – bevor die NASA überhaupt begreift, dass es nötig ist.</p>
+      <p class="char-bio">Ihr Stil ist ruhig, pragmatisch und berechnend. Sie denkt nicht nur an sich, sondern zieht alle mit – ein natürlicher Anführer ohne Ego.</p>
+      <div class="char-traits">
+        <span class="trait">Strategisch</span>
+        <span class="trait">Fürsorglich</span>
+        <span class="trait">Pragmatisch</span>
+        <span class="trait">Vorausschauend</span>
+        <span class="trait">Geduldig</span>
+      </div>
+      <div class="char-divider"></div>
+      <div class="char-strength-label">Stärken im Profil</div>
+      <div class="strength-bars">
+        <div class="strength-item"><span class="strength-name">Logik</span><div class="strength-bar"><div class="strength-fill" style="width:88%"></div></div></div>
+        <div class="strength-item"><span class="strength-name">Führung</span><div class="strength-bar"><div class="strength-fill" style="width:95%"></div></div></div>
+        <div class="strength-item"><span class="strength-name">Empathie</span><div class="strength-bar"><div class="strength-fill" style="width:90%"></div></div></div>
+        <div class="strength-item"><span class="strength-name">Anpassung</span><div class="strength-bar"><div class="strength-fill" style="width:92%"></div></div></div>
+      </div>
+    </div>
+
+    <!-- Mary -->
+    <div class="char-card mary fade-in">
+      <div class="char-avatar">M</div>
+      <div class="char-name">Mary Jackson</div>
+      <div class="char-role">Ingenieurin · Pionierin</div>
+      <p class="char-bio">Mary ist die Kämpferin. Sie weiß, was sie will – Ingenieurin werden –, und sie lässt sich von keinem System, keiner Regel und keiner Person davon abbringen. Als sie die Bedingung erfährt, dass sie für die Zulassung eine Schule für Weiße besuchen muss, klagt sie vor Gericht. Und gewinnt.</p>
+      <p class="char-bio">Sie ist direkt, charmant, leidenschaftlich und besitzt eine unnachahmliche Schlagfertigkeit. Ungerechtigkeiten spricht sie offen an – mit einem Lächeln, das schneidet wie ein Skalpell.</p>
+      <div class="char-traits">
+        <span class="trait">Leidenschaftlich</span>
+        <span class="trait">Direkt</span>
+        <span class="trait">Charmant</span>
+        <span class="trait">Kämpferisch</span>
+        <span class="trait">Optimistisch</span>
+      </div>
+      <div class="char-divider"></div>
+      <div class="char-strength-label">Stärken im Profil</div>
+      <div class="strength-bars">
+        <div class="strength-item"><span class="strength-name">Mut</span><div class="strength-bar"><div class="strength-fill" style="width:99%"></div></div></div>
+        <div class="strength-item"><span class="strength-name">Charisma</span><div class="strength-bar"><div class="strength-fill" style="width:94%"></div></div></div>
+        <div class="strength-item"><span class="strength-name">Logik</span><div class="strength-bar"><div class="strength-fill" style="width:85%"></div></div></div>
+        <div class="strength-item"><span class="strength-name">Empathie</span><div class="strength-bar"><div class="strength-fill" style="width:78%"></div></div></div>
+      </div>
+    </div>
+
+    <!-- Al Harrison -->
+    <div class="char-card al fade-in">
+      <div class="char-avatar">A</div>
+      <div class="char-name">Al Harrison</div>
+      <div class="char-role">NASA-Direktor · Pragmatiker</div>
+      <p class="char-bio">Al Harrison ist kein Held der Bürgerrechtsbewegung – er ist jemand, dem Leistung über alles geht. Genau das macht ihn ungewollt zum Verbündeten. Als er erkennt, dass segregierte Toiletten seine effizienteste Mitarbeiterin täglich eine Stunde kosten, reißt er das Schild eigenhändig herunter.</p>
+      <p class="char-bio">Er ist ungeduldig, direkt und manchmal rücksichtslos gegenüber sozialen Normen – aber fair, wenn er die Fakten kennt. Ein Anführer, der Leistung über Vorurteile stellt.</p>
+      <div class="char-traits">
+        <span class="trait">Ergebnisorientiert</span>
+        <span class="trait">Direkt</span>
+        <span class="trait">Pragmatisch</span>
+        <span class="trait">Gerecht</span>
+        <span class="trait">Ungeduldig</span>
+      </div>
+      <div class="char-divider"></div>
+      <div class="char-strength-label">Stärken im Profil</div>
+      <div class="strength-bars">
+        <div class="strength-item"><span class="strength-name">Führung</span><div class="strength-bar"><div class="strength-fill" style="width:90%"></div></div></div>
+        <div class="strength-item"><span class="strength-name">Entschlossenheit</span><div class="strength-bar"><div class="strength-fill" style="width:95%"></div></div></div>
+        <div class="strength-item"><span class="strength-name">Empathie</span><div class="strength-bar"><div class="strength-fill" style="width:42%"></div></div></div>
+        <div class="strength-item"><span class="strength-name">Fairness</span><div class="strength-bar"><div class="strength-fill" style="width:80%"></div></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <div class="quiz-wrapper">
+    <div class="section-header fade-in">
+      <div class="section-label">Selbsttest</div>
+      <h2>Welche Figur bist du?</h2>
+      <p>10 Fragen, die dich enthüllen – ehrlich antworten, du wirst dem passenden Charakter zugeordnet.</p>
+    </div>
+
+    <div id="quizContent" class="fade-in">
+      <div class="quiz-progress">
+        <div class="progress-header">
+          <span class="progress-label">Frage</span>
+          <span class="progress-count" id="progressCount">1 / 10</span>
+        </div>
+        <div class="progress-bar-track"><div class="progress-bar-fill" id="progressBar" style="width:10%"></div></div>
+      </div>
+
+      <div class="question-card" id="questionCard">
+        <div class="question-text" id="questionText"></div>
+        <ul class="options-list" id="optionsList"></ul>
+      </div>
+
+      <div class="quiz-nav">
+        <button class="btn btn-primary" id="nextBtn" style="display:none" onclick="nextQuestion()">Weiter →</button>
+        <button class="btn btn-primary" id="submitBtn" style="display:none" onclick="showResult()">Ergebnis anzeigen →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULT -->
+<section id="result">
+  <div class="result-inner">
+    <div class="result-eyebrow">Dein Hidden Figures Charakter</div>
+    <div class="result-avatar" id="resultAvatar"></div>
+    <div class="result-name" id="resultName"></div>
+    <div class="result-role" id="resultRole"></div>
+    <div class="result-description" id="resultDesc"></div>
+    <div class="result-traits" id="resultTraits"></div>
+    <div class="result-quote" id="resultQuote"></div>
+    <a href="#characters" class="btn btn-outline" style="display:inline-block; margin-right: 1rem;">Alle Charaktere ansehen</a>
+    <button class="btn btn-primary" id="restartBtn" onclick="restartQuiz()">Nochmal versuchen</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><span>Hidden Figures</span> · Regie: Theodore Melfi · 2016 · Basierend auf dem Buch von Margot Lee Shetterly</p>
+  <p style="margin-top:0.5rem; opacity:0.5;">Diese Seite ist ein nicht-kommerzielles Fan-Projekt zu Bildungszwecken.</p>
+</footer>
+
+<script>
+// ── STAR CANVAS ──
+const canvas = document.getElementById('starCanvas');
+const ctx = canvas.getContext('2d');
+let stars = [];
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
+function initStars() {
+  stars = [];
+  for (let i = 0; i < 220; i++) {
+    stars.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.5 + 0.3,
+      alpha: Math.random(),
+      speed: Math.random() * 0.003 + 0.001,
+      phase: Math.random() * Math.PI * 2
+    });
+  }
+}
+
+function drawStars(t) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  stars.forEach(s => {
+    const a = 0.3 + 0.7 * Math.abs(Math.sin(t * s.speed + s.phase));
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(245, 237, 216, ${a})`;
+    ctx.fill();
+  });
+  requestAnimationFrame(drawStars);
+}
+
+resizeCanvas();
+initStars();
+requestAnimationFrame(drawStars);
+window.addEventListener('resize', () => { resizeCanvas(); initStars(); });
+
+// ── SCROLL FADE ──
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ── QUIZ DATA ──
+const questions = [
+  {
+    text: "Du stehst vor einem schwierigen Problem, das niemand sonst lösen kann. Was tust du?",
+    options: [
+      { text: "Ich tauche tief ein, analysiere alles und erarbeite die präzise Lösung.", char: 'K' },
+      { text: "Ich lerne schnell, was ich brauche, und bereite auch mein Team darauf vor.", char: 'D' },
+      { text: "Ich kämpfe dafür, dass ich die Chance bekomme, es zu beweisen.", char: 'M' },
+      { text: "Ich schaue, was das Ergebnis bringt, und entscheide pragmatisch.", char: 'A' }
+    ]
+  },
+  {
+    text: "In einem Meeting sagt jemand Falsches – und alle nicken zustimmend. Wie reagierst du?",
+    options: [
+      { text: "Ich korrigiere es sachlich mit Fakten, auch wenn es unangenehm ist.", char: 'K' },
+      { text: "Ich warte den richtigen Moment ab und spreche es danach unter vier Augen an.", char: 'D' },
+      { text: "Ich widerspreche sofort, direkt und ohne Umschweife.", char: 'M' },
+      { text: "Ich unterbreche, sobald es meinen Plan gefährdet – ohne zu zögern.", char: 'A' }
+    ]
+  },
+  {
+    text: "Du wirst für deine Arbeit nicht anerkannt. Wie gehst du damit um?",
+    options: [
+      { text: "Ich tue meine Arbeit so gut, dass sie sich irgendwann selbst beweist.", char: 'K' },
+      { text: "Ich sorge dafür, dass mein ganzes Team sichtbar wird – wir steigen gemeinsam auf.", char: 'D' },
+      { text: "Ich forme es zu einem Fall und kämpfe aktiv dagegen an.", char: 'M' },
+      { text: "Das ärgert mich kurz – dann lenke ich die Energie auf das Ergebnis.", char: 'A' }
+    ]
+  },
+  {
+    text: "Was treibt dich morgens aus dem Bett?",
+    options: [
+      { text: "Eine knifflige Frage, auf die ich noch keine Antwort habe.", char: 'K' },
+      { text: "Das Wissen, dass meine Leute mich brauchen.", char: 'D' },
+      { text: "Die Leidenschaft für das, wofür ich angetreten bin.", char: 'M' },
+      { text: "Der nächste Meilenstein, der noch nicht erreicht ist.", char: 'A' }
+    ]
+  },
+  {
+    text: "Wie reagierst du auf ungerechte Regeln?",
+    options: [
+      { text: "Ich halte mich zunächst daran – und suche den richtigen Moment, um sie zu ändern.", char: 'K' },
+      { text: "Ich finde Wege, sie zu umgehen, ohne Aufsehen zu erregen.", char: 'D' },
+      { text: "Ich fordere sie direkt heraus, notfalls vor Gericht.", char: 'M' },
+      { text: "Wenn sie mein Ziel bremsen, beseitige ich sie – pragmatisch.", char: 'A' }
+    ]
+  },
+  {
+    text: "In deiner Gruppe trägt jemand nicht bei. Was machst du?",
+    options: [
+      { text: "Ich fokussiere mich auf meinen Teil und erledige meinen Beitrag perfekt.", char: 'K' },
+      { text: "Ich rede mit der Person und versuche zu verstehen, was sie bremst.", char: 'D' },
+      { text: "Ich sage es offen und fordere sie auf, mitzuziehen.", char: 'M' },
+      { text: "Ich kläre die Erwartungen und mache klar, was ich von jedem erwarte.", char: 'A' }
+    ]
+  },
+  {
+    text: "Wie lernst du am liebsten Neues?",
+    options: [
+      { text: "Allein – tief in Bücher und Konzepte eintauchen, bis ich es wirklich verstehe.", char: 'K' },
+      { text: "Eigeninitiativ – ich suche mir die Ressourcen und lerne, was die Situation erfordert.", char: 'D' },
+      { text: "Durch Machen – Fehler und Erfahrung sind mein bestes Lernfeld.", char: 'M' },
+      { text: "Effizient – ich lerne genau das, was ich für das nächste Ziel brauche.", char: 'A' }
+    ]
+  },
+  {
+    text: "Welches Kompliment würde dich am meisten freuen?",
+    options: [
+      { text: "„Deine Präzision ist unvergleichlich – du hast keinen Fehler gemacht."", char: 'K' },
+      { text: "„Dein Team wäre ohne dich nicht so weit gekommen."", char: 'D' },
+      { text: "„Du hast etwas erreicht, das alle für unmöglich hielten."", char: 'M' },
+      { text: "„Das Projekt läuft – und das liegt an deinen Entscheidungen."", char: 'A' }
+    ]
+  },
+  {
+    text: "Wie verhältst du dich unter starkem Druck?",
+    options: [
+      { text: "Ich werde ruhiger und analytischer – Druck schärft meinen Fokus.", char: 'K' },
+      { text: "Ich sorge erst für mein Team, dann für mich selbst.", char: 'D' },
+      { text: "Ich setze alles auf eine Karte und kämpfe mit voller Energie.", char: 'M' },
+      { text: "Ich treffe schnelle Entscheidungen und akzeptiere Unvollkommenheit für das Ergebnis.", char: 'A' }
+    ]
+  },
+  {
+    text: "Was ist deine größte Stärke im Umgang mit anderen?",
+    options: [
+      { text: "Meine Verlässlichkeit – die Leute wissen, dass ich immer richtig liege.", char: 'K' },
+      { text: "Meine Fähigkeit, andere zu fördern und mitzunehmen.", char: 'D' },
+      { text: "Mein Charme und meine Überzeugungskraft.", char: 'M' },
+      { text: "Meine Klarheit – ich sage, was ich meine, und meine, was ich sage.", char: 'A' }
+    ]
+  }
+];
+
+const characters = {
+  K: {
+    name: "Katherine Johnson",
+    role: "Mathematikerin & Berechnerin",
+    avatar: "K",
+    color: "#C9963C",
+    colorLight: "rgba(201,150,60,0.15)",
+    desc: "Du bist der Typ Mensch, der mit Fakten kämpft. Präzision ist dein Werkzeug und deine Waffe. Wo andere aufgeben, vertiefst du dich noch mehr. Du stellst unbequeme Fragen, wenn sie gestellt werden müssen – sachlich, nie dramatisch. Dein größter Triumph ist nicht der Applaus, sondern die perfekte Lösung.",
+    traits: ["Analytisch", "Präzise", "Mutig", "Hartnäckig", "Fokussiert"],
+    quote: "Frauen sind genau so intelligent wie Männer. Und wir können sehr gute Mathematik machen."
+  },
+  D: {
+    name: "Dorothy Vaughan",
+    role: "Vorarbeiterin & Strategin",
+    avatar: "D",
+    color: "#C4727A",
+    colorLight: "rgba(196,114,122,0.15)",
+    desc: "Du bist die stille Kraft im Hintergrund, die alle trägt. Du siehst Veränderungen kommen, bevor andere sie spüren, und bereitest dich und dein Umfeld vor. Dein Führungsstil ist leise, aber tief wirksam – du ziehst nie nur dich selbst nach oben, sondern immer alle mit.",
+    traits: ["Strategisch", "Fürsorglich", "Vorausschauend", "Loyal", "Pragmatisch"],
+    quote: "Ich sah mir eine Gelegenheit an und ergriff sie. Das ist es, was wir alle tun müssen."
+  },
+  M: {
+    name: "Mary Jackson",
+    role: "Ingenieurin & Pionierin",
+    avatar: "M",
+    color: "#6BAED6",
+    colorLight: "rgba(107,174,214,0.15)",
+    desc: "Du trägst deine Leidenschaft offen – und das ist deine größte Stärke. Wenn du etwas willst, kämpfst du dafür mit vollem Einsatz, notfalls gegen das System. Du sprichst Unrecht direkt an, machst aus deiner Entschlossenheit kein Geheimnis, und inspirierst andere durch pure Energie und Überzeugung.",
+    traits: ["Leidenschaftlich", "Mutig", "Direkt", "Charmant", "Kämpferisch"],
+    quote: "Jeden Tag muss ich der Erste von etwas sein – also wäre es genauso gut, die erste schwarze Ingenieurin der NASA zu sein."
+  },
+  A: {
+    name: "Al Harrison",
+    role: "Direktor & Pragmatiker",
+    avatar: "A",
+    color: "#74C476",
+    colorLight: "rgba(116,196,118,0.15)",
+    desc: "Du bist auf Ergebnisse fokussiert – und wenn etwas deinem Ziel im Weg steht, beseitigst du es. Nicht aus Idealismus, sondern aus Vernunft. Du bist direkt, manchmal ungeduldig, aber fair. Wer liefert, hat deine volle Unterstützung. Du führst durch Klarheit, nicht durch Applaus.",
+    traits: ["Ergebnisorientiert", "Direkt", "Pragmatisch", "Entschlossen", "Gerecht"],
+    quote: "Hier bei der NASA fragen wir keine Farben. Wir fragen nach Köpfen."
+  }
+};
+
+let current = 0;
+let scores = { K: 0, D: 0, M: 0, A: 0 };
+let selected = null;
+
+function renderQuestion() {
+  const q = questions[current];
+  document.getElementById('questionText').textContent = q.text;
+  document.getElementById('progressCount').textContent = `${current + 1} / ${questions.length}`;
+  document.getElementById('progressBar').style.width = `${((current + 1) / questions.length) * 100}%`;
+
+  const list = document.getElementById('optionsList');
+  list.innerHTML = '';
+  const letters = ['A', 'B', 'C', 'D'];
+  q.options.forEach((opt, i) => {
+    const li = document.createElement('li');
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.innerHTML = `<span class="option-letter">${letters[i]}</span><span>${opt.text}</span>`;
+    btn.onclick = () => selectOption(i, opt.char, btn);
+    li.appendChild(btn);
+    list.appendChild(li);
+  });
+
+  selected = null;
+  document.getElementById('nextBtn').style.display = 'none';
+  document.getElementById('submitBtn').style.display = 'none';
+}
+
+function selectOption(idx, char, btn) {
+  document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  selected = char;
+
+  if (current < questions.length - 1) {
+    document.getElementById('nextBtn').style.display = 'block';
+  } else {
+    document.getElementById('submitBtn').style.display = 'block';
+  }
+}
+
+function nextQuestion() {
+  if (!selected) return;
+  scores[selected]++;
+  current++;
+  renderQuestion();
+}
+
+function showResult() {
+  if (!selected) return;
+  scores[selected]++;
+
+  const winner = Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
+  const c = characters[winner];
+
+  document.getElementById('quiz').style.display = 'none';
+  const resultSec = document.getElementById('result');
+  resultSec.style.display = 'block';
+
+  const av = document.getElementById('resultAvatar');
+  av.textContent = c.avatar;
+  av.style.background = c.colorLight;
+  av.style.color = c.color;
+  av.style.border = `2px solid ${c.color}`;
+
+  document.getElementById('resultName').textContent = c.name;
+  document.getElementById('resultName').style.color = c.color;
+  document.getElementById('resultRole').textContent = c.role;
+  document.getElementById('resultDesc').textContent = c.desc;
+  document.getElementById('resultQuote').textContent = `„${c.quote}"`;
+
+  const traitsEl = document.getElementById('resultTraits');
+  traitsEl.innerHTML = '';
+  c.traits.forEach(t => {
+    const span = document.createElement('span');
+    span.className = 'result-trait';
+    span.textContent = t;
+    span.style.color = c.color;
+    span.style.borderColor = c.color;
+    span.style.background = c.colorLight;
+    traitsEl.appendChild(span);
+  });
+
+  resultSec.scrollIntoView({ behavior: 'smooth' });
+}
+
+function restartQuiz() {
+  current = 0;
+  scores = { K: 0, D: 0, M: 0, A: 0 };
+  selected = null;
+  document.getElementById('result').style.display = 'none';
+  document.getElementById('quiz').style.display = 'block';
+  renderQuestion();
+  document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Init
+renderQuestion();
+</script>
+</body>
+</html>
